@@ -1,0 +1,18 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Node + Express + Mysql 接口开发",
+  "main": "main.js",
+  "scripts": {
+    "start": "hotnode main.js"
+  },
+  "author": "cjq",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "file-stream-rotator": "^0.6.1",
+    "moment": "^2.29.4",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  }
+}
