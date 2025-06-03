@@ -1,4 +1,4 @@
-let data = {
+let config = {
     database:{
         host: 'localhost',
         user: '123456',
@@ -6,7 +6,8 @@ let data = {
         password: '123456',
     },
     serve:{
-        port:3000
+        host:'127.0.0.1',
+        port:30001
     }
 }
-module.exports = data;
+module.exports = config;

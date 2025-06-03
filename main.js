@@ -37,8 +37,16 @@ app.all('*', function(req, res, next) {
     res.header("X-Powered-By", ' 3.2.1');
     next();
 });
+// 静态资源服务 http://localhost:30001/static/images/kitten.jpg
+app.use('/static', express.static('public'))
+
 //引入路由
 const optionRouter = require('./router/index');
 app.use('/api', optionRouter);
 
-app.listen(Config.serve.port, () => console.log('Example app listening on port 3000!'))
+app.listen(Config.serve.port, () => {
+        console.log(`Example app listening, http://${Config.serve.host}:${Config.serve.port}`)
+        console.log(`Example app API use,  http://${Config.serve.host}:${Config.serve.port}/api/option?name=siteurl`)
+        console.log(`Example app statics,  http://${Config.serve.host}:${Config.serve.port}/static/`)
+    }
+)
