@@ -1,9 +1,9 @@
 let data = {
     database:{
         host: 'localhost',
-        user: 'root',
-        password: 'root',
-        database: 'sqlname',
+        user: '123456',
+        database: 'wptest_com',
+        password: '123456',
     },
     serve:{
         port:3000

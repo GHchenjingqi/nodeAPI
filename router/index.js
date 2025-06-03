@@ -8,12 +8,15 @@ http://localhost:3000/api/option?optionName=siteurl'
 查询默认参数
 http://localhost:3000/api/option
 */
-router.get('/option', options.query);
+router.get('/option', options.getOption);
 /*更新wp_options参数查询*/ 
-router.put('/option', options.update);
+router.put('/option', options.updateOption);
 /*插入更新wp_options参数查询*/
-router.post('/option', options.add);
+router.post('/option', options.createOption);
+/*全部*/
+router.get('/optionAll', options.getAllOptions);
 /*删除*/
-router.delete('/option', options.delete);
+router.delete('/option', options.deleteOption);
+
 
 module.exports = router;
