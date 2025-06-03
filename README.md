@@ -10,8 +10,8 @@
 ## 插件
 
 1.morgan记录日志
-2.file-stream-rotator日志分割
-2.nodemon热更新/重载
+2.file-stream-rotator日志分割 
+2.nodemon热更新/重载 
 
 ## 安装
 
