@@ -1,9 +1,9 @@
 let config = {
     database:{
         host: 'localhost',
-        user: '123456',
+        user: 'root',
         database: 'wptest_com',
-        password: '123456',
+        password: 'root',
     },
     serve:{
         host:'127.0.0.1',

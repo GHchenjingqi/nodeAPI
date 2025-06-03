@@ -1,18 +1,20 @@
 {
   "name": "api",
-  "version": "1.0.0",
+  "version": "1.0.3",
+  "author": "chenxiaozhi",
+  "github":  "https://github.com/GHchenjingqi/nodeAPI",
   "description": "Node + Express + Mysql 接口开发",
   "main": "main.js",
   "scripts": {
     "start": "nodemon main.js"
   },
-  "author": "cjq",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.1",
     "file-stream-rotator": "^0.6.1",
     "moment": "^2.29.4",
     "morgan": "^1.10.0",
+    "multer": "^2.0.0",
     "mysql": "^2.18.1",
     "nodemon": "^3.1.10"
   }

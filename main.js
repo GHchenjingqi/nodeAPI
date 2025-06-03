@@ -25,7 +25,7 @@ app.use(morgan('API',{stream: accessLogStream}));
 
 // 发送数据处理
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 //app.use(bodyParser.json);
 // 允许跨域访问
 app.all('*', function(req, res, next) {
