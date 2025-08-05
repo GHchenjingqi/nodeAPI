@@ -2,7 +2,7 @@
   "name": "api",
   "version": "1.0.3",
   "author": "chenxiaozhi",
-  "github":  "https://github.com/GHchenjingqi/nodeAPI",
+  "github": "https://github.com/GHchenjingqi/nodeAPI",
   "description": "Node + Express + Mysql 接口开发",
   "main": "main.js",
   "scripts": {
@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.18.1",
     "file-stream-rotator": "^0.6.1",
+    "jsonwebtoken": "^9.0.2",
     "moment": "^2.29.4",
     "morgan": "^1.10.0",
     "multer": "^2.0.0",

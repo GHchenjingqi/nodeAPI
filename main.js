@@ -23,10 +23,10 @@ let accessLogStream = FileStreamRotator.getStream({
 morgan.format('API', '[API] :method :url :status  HTTP/:http-version :remote-addr -  :response-time ms :user-agent');
 app.use(morgan('API',{stream: accessLogStream}));
 
-// 发送数据处理
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: true}));
-//app.use(bodyParser.json);
+// 发送数据处理，4.16+ 使用express内置解析器
+// const bodyParser = require('body-parser');
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // 允许跨域访问
 app.all('*', function(req, res, next) {
     res.header('Access-Control-Allow-Origin', "*");

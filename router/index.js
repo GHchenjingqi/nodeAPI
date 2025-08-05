@@ -1,23 +1,38 @@
 const express = require('express');
 const multer = require('multer');
+const jwt = require('jsonwebtoken');
+const config = require("../config");
+
 // form-data上传文件支持
 const upload = multer();
 const router = express.Router();
-const options = require("./wp_option");
-/*
-wp_options参数查询
-查询指定参数：
-查询 get请求 Query参数 /api/option?optionName=siteurl'
-查询 get请求全部 无参数  /api/optionAll
-新增 post请求 x-www-form-urlencoded参数/json参数  /api/option，form-data参数需要使用upload处理
-修改 put请求 Query参数  /api/option
-删除 delete请求 Query参数  /api/option
-*/
-router.get('/option', options.getOption);
-router.get('/optionAll', options.getAllOptions);
-router.put('/option', options.updateOption);
-router.post('/option', options.createOption);
-router.post('/options',  upload.none(), options.createOption);
-router.delete('/option', options.deleteOption);
+const options = require("./login");
+ 
+
+// 验证 JWT 的中间件
+const authenticateJWT = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  
+  if (authHeader) {
+    const token = authHeader.split(' ')[1]; // Bearer <token>
+    
+    jwt.verify(token, config.JWT_SECRET, (err, user) => {
+      if (err) {
+        return res.sendStatus(403); 
+      }
+      req.user = user;
+      next();
+    });
+  } else {
+    res.sendStatus(401); // 未提供 token
+  }
+};
+
+
+// 公开路由
+router.post('/login', options.login);
+router.post('/register', options.register);
+// 受保护路由
+router.post('/infos', authenticateJWT , options.register);
 
 module.exports = router;
