@@ -6,8 +6,8 @@ const config = require("../config");
 // form-data上传文件支持
 const upload = multer();
 const router = express.Router();
-const options = require("./login");
- 
+const loginApi = require("./apis/login");
+const menusApi = require("./apis/menus");
 
 // 验证 JWT 的中间件
 const authenticateJWT = (req, res, next) => {
@@ -30,9 +30,9 @@ const authenticateJWT = (req, res, next) => {
 
 
 // 公开路由
-router.post('/login', options.login);
-router.post('/register', options.register);
+router.post('/login', loginApi.login);
+router.post('/register', loginApi.register);
 // 受保护路由
-router.post('/infos', authenticateJWT , options.register);
+router.get('/menus', authenticateJWT , menusApi.menuLists);
 
 module.exports = router;

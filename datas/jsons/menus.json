@@ -1,0 +1,43 @@
+{
+  "menus": [
+    {
+      "id": 1,
+      "path": "/",
+      "title": "Home",
+      "page": "HomePage",
+      "hide": false,
+      "icon": "HomeOutlined"
+    },
+    {
+      "id": 3,
+      "path": "/order",
+      "title": "Order",
+      "page": "OrderPage",
+      "hide": false,
+      "icon": "LineChartOutlined",
+      "children": [
+        {
+          "id": 300,
+          "path": "/order/index",
+          "title": "Order",
+          "page": "OrderPage",
+          "hide": false
+        },
+        {
+          "id": 301,
+          "path": "/order/list",
+          "title": "Order List",
+          "page": "OrderListPage",
+          "hide": false
+        }
+      ]
+    },{
+      "id": 10,
+      "path": "/user",
+      "title": "User",
+      "page": "UserPage",
+      "hide": false,
+      "icon": "UserOutlined"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const { ErrorCode, ErrorMessage } = require('../utill/constant');
-const { getUser, createUser, isUsernameExists } = require('../datas');
-const config = require('../config');
+const { ErrorCode, ErrorMessage } = require('../../utill/constant');
+const { getUser, createUser, isUsernameExists } = require('../../datas');
+const config = require('../../config');
 
 module.exports = {
     login: async function (req, res) {
