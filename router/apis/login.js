@@ -7,12 +7,12 @@ module.exports = {
     login: async function (req, res) {
         const { username, password } = req.body;
         if (username && password) {
-            let {password,id:userid ,...rest} = await getUser(username)
+            let { password, id: userid, ...rest } = await getUser(username)
             if (password) {
                 if (password === password) {
                     // 生成token令牌
                     const token = jwt.sign(
-                        { id: userid, username},
+                        { id: userid, username },
                         config.JWT_SECRET,
                         { expiresIn: config.JWT_EXPIRES_IN }
                     );
@@ -47,11 +47,19 @@ module.exports = {
             }
             let userid = await createUser({ id: new Date().getTime(), username, password })
             if (userid) {
+                const token = jwt.sign(
+                    { id: userid, username },
+                    config.JWT_SECRET,
+                    { expiresIn: config.JWT_EXPIRES_IN }
+                );
                 res.json({
                     code: ErrorCode.SUCCESS,
-                    data: "12312312312312",
+                    data: {
+                        token,
+                        username
+                    },
                     message: ErrorMessage.SUCCESS
-                });
+                })
             }
         }
     },
